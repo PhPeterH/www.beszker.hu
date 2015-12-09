@@ -1,0 +1,32 @@
+#Options +FollowSymlinks
+
+RewriteEngine on
+
+#RewriteRule ^(.*)\.html$ $1.php [nc]
+
+
+RewriteRule ^(.*)\.html$	index.php?r=$1 [nc]
+
+
+#RewriteBase /
+
+#RewriteCond %{HTTP_HOST}	^otthonodert.hu/
+#RewriteRule (.*)	http://otthonodert.hu/$1 [R=301,L]
+#RewriteCond %{REQUEST_URI}		^(/.*)\.html$
+#RewriteRule ^(.*)$             index.php?r=$1 [QSA]
+
+
+#Bad request
+ErrorDocument 400 /index.php?r=400
+
+#Authorization Required
+ErrorDocument 401 /index.php?r=401
+
+#Forbidden
+ErrorDocument 403 /index.php?r=403
+
+#Not Found
+ErrorDocument 404 /index.php?r=404
+
+#Internal Server Error
+ErrorDocument 500 /index.php?r=500
